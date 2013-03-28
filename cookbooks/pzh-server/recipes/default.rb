@@ -43,30 +43,30 @@ git "Checkout Code" do
 end
 
 #npm update
-directory "~/.npm" do
-  owner "vagrant"
-  group "vagrant"
-  mode "0755"
-  action :create
-end
-directory "~/tmp" do
-  owner "vagrant"
-  group "vagrant"
-  mode "0755"
-  action :create
-end
+#directory "/root/.npm" do
+#  owner "vagrant"
+#  group "vagrant"
+#  mode "0755"
+#  action :create
+#end
+#directory "/root/tmp" do
+#  owner "vagrant"
+#  group "vagrant"
+#  mode "0755"
+#  action :create
+#end
 
 execute "Install grunt" do
-  user "vagrant"
-  group "vagrant"
+  user "root"
+  group "root"
   command "npm update -g npm"
 end
 
 #grunt install
 
 execute "Install grunt" do
-  user "vagrant"
-  group "vagrant"
+  user "root"
+  group "root"
   command "npm install -g grunt-cli"
 end
 

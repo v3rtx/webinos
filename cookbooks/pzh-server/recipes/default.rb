@@ -86,5 +86,5 @@ execute "Run PZH" do
   user "root"
   cwd "/opt/Webinos-Platform"
   command 'forever ./webinos_pzh.js --host="pzh.webinos.org"'
-  timeout 10
+  timeout 100
 end

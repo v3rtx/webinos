@@ -66,15 +66,15 @@ Vagrant::Config.run do |config|
   # some recipes and/or roles.
   #
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks"
-    chef.add_recipe "apt"
-    chef.add_recipe "nodejs"
-    chef.add_recipe "git"
-    chef.json.merge!({
-      :nodejs => {
-        :version => "0.8.14"
-      }
-    })
+  #  chef.cookbooks_path = "cookbooks"
+  #  chef.add_recipe "apt"
+  #  chef.add_recipe "nodejs"
+  #  chef.add_recipe "git"
+  #  chef.json.merge!({
+  #    :nodejs => {
+  #      :version => "0.8.14"
+  #    }
+  #  })
     chef.add_recipe "pzh-server"
   #   # You may also specify custom JSON attributes:
   #   chef.json = { :mysql_password => "foo" }

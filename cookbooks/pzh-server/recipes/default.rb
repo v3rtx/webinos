@@ -38,35 +38,20 @@ git "Checkout Code" do
   reference "master" # or "HEAD" or "TAG_for_1.0" or (subversion) "1234"
   action :sync
   destination "/opt/Webinos-Platform"
+  retries 3
   user "vagrant"
   group "vagrant"
 end
 
 #npm update
-#directory "/root/.npm" do
-#  owner "vagrant"
-#  group "vagrant"
-#  mode "0755"
-#  action :create
-#end
-#directory "/root/tmp" do
-#  owner "vagrant"
-#  group "vagrant"
-#  mode "0755"
-#  action :create
-#end
-
-execute "Install grunt" do
+execute "npm update" do
   user "root"
-  group "root"
   command "npm update -g npm"
 end
 
 #grunt install
-
 execute "Install grunt" do
   user "root"
-  group "root"
   command "npm install -g grunt-cli"
 end
 
@@ -75,6 +60,7 @@ execute "Install webinos" do
   group "vagrant"
   cwd "/opt/Webinos-Platform"
   command "npm install"
+  retries 3
   environment 'HOME' => '/home/vagrant'
 end
 

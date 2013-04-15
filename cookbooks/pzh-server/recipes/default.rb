@@ -43,13 +43,11 @@ git "Checkout Code" do
   group "vagrant"
 end
 
-#npm update
 execute "npm update" do
   user "root"
   command "npm update -g npm"
 end
 
-#grunt install
 execute "Install grunt" do
   user "root"
   command "npm install -g grunt-cli"
@@ -70,7 +68,9 @@ end
 
 execute "Run PZH" do
   user "root"
+  group "root"
   cwd "/opt/Webinos-Platform"
-  command 'forever ./webinos_pzh.js --host="pzh.webinos.org"'
-  timeout 100
+  command 'node ./webinos_pzh.js --host="localhost" --name="localhost"' 
+# disable this in future. atm is fix for CommandTimeout Error fix
+  timeout 99999999
 end
